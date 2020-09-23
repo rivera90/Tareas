@@ -1,0 +1,36 @@
+<app-header titulo="Pendientes"></app-header>
+
+<ion-content>
+
+  <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
+    <ion-list-header>
+      <ion-label >Registrar Tarea</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label position="floating">Tarea</ion-label>
+      <ion-input name=titulo
+                  [(ngModel)]="Tarea.titulo"
+                  required>
+
+      </ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">subtitulo</ion-label>
+      <ion-input  name="subtitulo"
+                  [(ngModel)]="Tarea.subtitulo"
+                  required>
+      </ion-input>
+    </ion-item>
+
+    <ion-button 
+                type="submit" 
+                expand="block"
+                [disabled]="(Tarea.titulo.length < 1 && Tarea.subtitulo.length < 1)"
+                >
+      Guardar
+    </ion-button>
+  </form>
+
+</ion-content>
